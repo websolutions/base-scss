@@ -1,0 +1,63 @@
+// Visibility
+// ==========
+
+@mixin hidden {
+  display: none !important;
+
+  @include leading(0);
+
+  &:first-child {
+    @include trailing(0);
+  }
+}
+
+.hidden, .aspNetHidden {
+  @include hidden;
+}
+
+.visible {
+  display: block !important;
+}
+
+.visible-table {
+  display: table !important;
+}
+
+// Queries
+// -------
+
+@each $breakpoint, $query in $breakpoints {
+  .visible-#{$breakpoint},
+  .visible-table-#{$breakpoint} {
+    &, &-up { @extend .hidden; }
+  }
+
+  @include query($breakpoint) {
+    @each $b, $query in $breakpoints {
+      @if $b != $breakpoint {
+        .visible-#{$b},
+        .visible-table-#{$b} {
+          display: none !important;
+        }
+        .hidden-#{$b} {
+          display: block !important;
+        }
+
+        .hidden-table-#{$b} {
+          display: table !important;
+        }
+      }
+    }
+
+    .visible-#{$breakpoint} {
+      &, &-up { display: block !important; }
+    }
+    .visible-table-#{$breakpoint} {
+      &, &-up { display: table !important; }
+    }
+    .hidden-#{$breakpoint},
+    .hidden-table-#{$breakpoint} {
+      &, &-up { @include hidden; }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+// Queries
+// =======
+
+$queries: () !default;
+
+@mixin query($query, $reverse: false) {
+  $q: map-get($queries, $query);
+  @if $reverse {
+    $q: str-replace($q, "min-", "oldmin-");
+    $q: str-replace($q, "max-", "min-");
+    $q: str-replace($q, "oldmin-", "max-");
+  }
+  @media #{$q} {
+    @content;
+  }
+}

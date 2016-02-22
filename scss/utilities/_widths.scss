@@ -1,0 +1,44 @@
+// Widths
+// ======
+
+@mixin widths($max, $prefix: '', $postfix: '') {
+  %#{$prefix}width#{$postfix} {
+    &.unit {
+      @include leading(0);
+    }
+  }
+
+  @for $denom from 1 through $max {
+    @for $num from 1 through $denom {
+      $gcd: gcd($num, $denom);
+      .#{$prefix}size#{$num}of#{$denom}#{$postfix} {
+        @extend %#{$prefix}width#{$postfix};
+        @if $gcd > 1 {
+          @extend .#{$prefix}size#{$num / $gcd}of#{$denom / $gcd}#{$postfix};
+        } @else {
+          width: percentage($num/$denom);
+        }
+      }
+    }
+  }
+}
+
+//@include widths($columns);
+
+/*@include query(alpha, true) {
+  @include widths($columns, $prefix: 'default-')
+}*/
+
+@each $name, $query in $breakpoints {
+  @include query($name) {
+    @include widths($columns, $prefix: $name + '-');
+  }
+}
+
+@include query(charlie) {
+  @include widths($columns, $prefix: '');
+
+  .size1of1 {
+    width: 100%;
+  }
+}

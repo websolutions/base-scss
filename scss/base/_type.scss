@@ -1,0 +1,53 @@
+// Type.css
+
+html {
+  font-family: $font-stack;
+  font-weight: 300;
+  font-size: $fontSize;
+} //vars in settings > _type.scss
+
+a {
+  color: #008457;
+  font-weight:700;
+  text-decoration: none;
+}
+
+  a:hover {
+    color: darken(#008457,8);
+    text-decoration: underline;
+  }
+
+.js a {
+  -webkit-transition: ease-in .2s;
+  -moz-transition: ease-in .2s;
+  -ms-transition: ease-in .2s;
+  -o-transition: ease-in .2s;
+  transition: ease-in .2s;
+}
+
+
+h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.page-title {
+  font-size:36px;
+  margin:15px 0;
+  text-transform:uppercase;
+}
+
+h2 {
+  font-size: 26px;
+  margin: 10px 0;
+  color:#000000;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+h4 {
+  font-size: 16px;
+  margin: 10px 0;
+}

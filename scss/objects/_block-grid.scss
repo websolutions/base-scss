@@ -1,0 +1,70 @@
+// Block Grid - https://mixitup.kunkalabs.com/learn/tutorial/responsive-grids/
+
+.block-grid {
+  font-size: 0;
+  margin: 0 0 $fontSize -1*$wsolHPad;
+  padding-left: 0;
+  text-align: justify;
+
+  @include query(charlie) {
+    margin: 0 0 $fontSize -1*$wsolHPadCharlie;
+  }
+
+  > * {
+    display: block;
+    margin-top: 0;
+    padding: 0 0 0 $wsolHPad;
+    vertical-align: top;
+    font-size: $fontSize;
+    text-align:left;
+
+    @include query(charlie) {
+      padding: 0 0 0 $wsolHPadCharlie;
+    }
+  }
+
+  &-middle > * {
+    vertical-align: middle;
+  }
+
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+@mixin block-grid($max, $prefix: '', $postfix: '') {
+  %#{$prefix}block-grid#{$postfix} {
+    > * {
+      display: inline-block;
+    }
+  }
+
+  @for $num from 1 through $max {
+    .#{$prefix}block-grid-#{$num}#{$postfix} {
+      @extend %#{$prefix}block-grid#{$postfix};
+
+      > * {
+        width: percentage(1/$num);
+
+        @if $num > 1 {
+          @for $span from 2 through $num {
+            &.span-#{$span} {
+              width: $span*percentage(1/$num);
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@include block-grid($columns);
+
+@each $name, $query in $breakpoints {
+  @include query($name) {
+    @include block-grid(6, $prefix: $name + '-');
+  }
+}

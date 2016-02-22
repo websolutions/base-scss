@@ -1,0 +1,93 @@
+// Grid System
+
+.inner {
+  padding: 0 $wsolHPad 0 0;
+  margin: 0 auto;
+
+  @include query(charlie) {
+    padding: 0 $wsolHPadCharlie 0 0;
+  }
+}
+  .inner .inner {
+    margin: -1em -1*$wsolHPad 0;
+
+    @include query(charlie) {
+      margin: -1em -1*$wsolHPadCharlie 0;
+    }
+  }
+
+.unit {
+  float: left;
+  padding: 1em 0 0 $wsolHPad;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  @include query(charlie) {
+    padding: 1em 0 0  $wsolHPadCharlie;
+  }
+
+}
+
+.size2of4 {
+width: 100%;
+}
+
+.default-size1of2 { width: 50%; }
+.default-size1of3 { width: 33.333%; }
+.default-size1of4 { width: 25%; }
+.default-size1of5 { width: 20%; }
+.default-size2of5 { width: 40%; }
+.default-size3of5 { width: 60%; }
+.default-size2of3 { width: 66.666%; }
+.default-size3of4 { width: 75%; }
+.default-size4of5 { width: 80%; }
+
+@include query(alpha) {
+
+  .alpha-size1of2, .size2of4 { width: 50%; }
+  .alpha-size1of3 { width: 33.333%; }
+  .alpha-size1of4 { width: 25%; }
+  .alpha-size1of5 { width: 20%; }
+  .alpha-size2of5 { width: 40%; }
+  .alpha-size3of5 { width: 60%; }
+  .alpha-size2of3 { width: 66.666%; }
+  .alpha-size3of4 { width: 75%; }
+  .alpha-size4of5 { width: 80%; }
+
+}
+
+
+@include query(bravo){
+
+  .bravo-size1of2, .size2of4 { width: 50%; }
+  .bravo-size1of3 { width: 33.333%; }
+  .bravo-size1of4 { width: 25%; }
+  .bravo-size1of5 { width: 20%; }
+  .bravo-size2of5 { width: 40%; }
+  .bravo-size3of5 { width: 60%; }
+  .bravo-size2of3 { width: 66.666%; }
+  .bravo-size3of4 { width: 75%; }
+  .bravo-size4of5 { width: 80%; }
+
+}
+
+@include query(charlie) {
+  /* 1158px gives us a sidebar that is the same size as the existing site (252px).
+     Main content area ends up being wider (816px vs 726px) */
+  .inner { max-width: 1158px; }
+  .size1of1 { width: 100%; }
+  .size1of2, .size2of4 { width: 50%; }
+  .size1of3 { width: 33.333%; }
+  .size1of4 { width: 25%; }
+  .size1of5 { width: 20%; }
+  .size2of5 { width: 40%; }
+  .size3of5 { width: 60%; }
+  .size2of3 { width: 66.666%; }
+  .size3of4 { width: 75%; }
+  .size4of5 { width: 80%; }
+
+/*  .mainContent { width: 756px; }
+  .sideBar { width: 288px; }*/
+}

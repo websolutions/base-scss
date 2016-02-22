@@ -1,0 +1,40 @@
+//BUTTONS
+
+
+.btn {
+  color: #ffffff;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 9px 14px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  outline: none;
+  font-size: 14px;
+}
+
+a.btn-primary {
+  background: #008457;
+}
+
+  a.btn-primary:hover {
+    background: darken(#008457,8);
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+
+a.btn-secondary {
+  background: #9b9b9b;
+  font-weight: normal;
+}
+  
+  a.btn-secondary:hover {
+    background: darken(#9b9b9b,8);
+    color:#FFFFFF;
+    text-decoration:none;
+  }

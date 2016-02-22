@@ -1,0 +1,86 @@
+// Faux Table - based on https://css-tricks.com/responsive-data-tables/
+// ========
+
+.faux-table {
+  display: block;
+  margin: 0 -1em;
+
+  @include query(bravo) {
+    display: table;
+    margin: 0;
+    width: 100%;
+  }
+
+  .tr {
+    display: block;
+    padding: 1em;
+    border-top: 1px solid #E7E7E7;
+
+    &.header-row {
+      padding: 0;
+    }
+
+    &:first-of-type {
+      border-top:none;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    
+
+    @include query(bravo) {
+      display: table-row;
+    }
+  }
+
+  .th {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+
+    @include query(bravo) {
+      background: $colorPrimary;
+      color: #ffffff;
+      display: table-cell;
+      padding: 1em;
+      position: static;
+    }
+  }
+
+  .td {
+    display: block;
+    // line-height: 2;
+    /*margin-bottom: 0.5em;*/
+    position: relative;
+    padding: 0 0 0 120px;
+    text-align: left;
+
+    @include query(bravo) {
+      display: table-cell;
+      padding: 1em;
+      vertical-align: middle;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110px;
+      padding: 0 0.5em;
+      text-align: right;
+      color: #000000;
+      font-weight: 700;
+      content: attr(data-label);
+
+      @include query(bravo) {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

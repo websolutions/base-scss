@@ -1,0 +1,17 @@
+// Queries
+// =======
+//
+// Helper map containing all queries.
+//
+
+$breakpoints: (
+  alpha: unquote($alpha),
+  bravo: unquote($bravo),
+  charlie: unquote($charlie)
+);
+
+$queries: map-merge((
+  retina: "only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)",
+  screen: "only screen",
+  print: "only print"
+), $breakpoints);

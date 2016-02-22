@@ -1,0 +1,61 @@
+// Tabs
+
+.tabs,
+.faux-tabs {
+
+  .tab-navigation {
+    display: table;
+    width: 100%;
+
+
+    li {
+      display:table-cell;
+      @include query(bravo){
+
+        width:25%;
+      }
+      width:100%;
+      /*border: 2px solid #FFFFFF;*/
+      position: relative;
+
+      a {
+        background: $btnSecondary;
+        color: #FFFFFF;
+        font-weight:normal;
+        margin: 0 0 4px 0;
+        padding: 10px 0 10px 10px;
+        text-transform: uppercase;
+
+        @include query(bravo) {
+          margin-right: 4px;
+        }
+      }
+
+      &.selected a {
+        background: $colorPrimary;
+        cursor: default;
+        text-decoration: none;
+      }
+
+      &:before {
+        content: "";
+        width: 0;
+        position: absolute;
+        border-top: 20px solid #FFFFFF;
+        border-left: 20px solid $btnSecondary;
+        top: 0;
+        right: 0;
+
+        @include query(bravo) {
+          right: 4px;
+        }
+      }
+
+      &.selected:before {
+        border-left: 20px solid $colorPrimary;
+      }
+    }
+  }
+
+}
+

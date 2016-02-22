@@ -1,0 +1,160 @@
+// Slider
+
+
+.slick-slider {
+  z-index: 0; // So slider elements sit below the main menu on Charlie
+}
+
+section.slideshow {
+  border-bottom:1px solid #E6E6E6;
+}
+
+.slide:focus {
+  outline: none;
+}
+
+.slide-show .block-grid {
+  text-align: center;
+}
+
+.slideshow .product-information ul {
+  text-align:left;
+
+}
+
+.slide-show .image {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.no-js .slideshow .slide {
+  display: none;
+
+  &:first-child {
+    display: block;
+  }
+}
+
+.slide {
+
+  .media .img {
+    max-width: 40%;
+    img {
+      max-height: 270px;
+    }
+  }
+}
+
+.slick-prev{
+  left: -5px
+}
+
+.slick-next{
+  right: -5px
+}
+
+.slick-prev,.slick-next {
+  top:20%;
+  @include query(bravo){
+    top:50%;
+  }
+}
+.slick-prev::before {
+  content: "\f104";
+}
+
+
+.slick-next::before {
+ content: "\f105";
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: 'FontAwesome';
+  font-size: 30px;
+  line-height: 1;
+  opacity: 1;
+  color: $colorPrimary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@include query(bravo) {
+
+  .slick-prev:before, .slick-next:before {
+
+    font-size: 60px;
+
+  }
+
+}
+
+.slick-dots {
+  text-align: right;
+
+    li {
+      width: $fontSize;
+    }
+
+    li button:before {
+      font-size: $fontSize;
+      color: #000000;
+      font-family: 'fontAwesome';
+      content: '\f0c8';
+    }
+
+    li.slick-active button:before {
+      color: #000000;
+    }
+
+}
+
+.price {
+  color: $colorSecondary;
+  font-weight:700;
+}
+
+.slide .media {
+  display: block;
+  overflow: hidden;
+
+  .img {
+    display: block;
+    margin: 0 auto;
+    max-width: 75%;
+
+    @include query(bravo) {
+      float: left;
+      margin-right: 1em;
+      max-width: 45%;
+    }
+  }
+
+  .bd {
+
+    @include query(bravo) {
+      overflow: hidden;
+    }
+  }
+
+}
+
+.slide .media .bd {
+
+  text-align:center;
+
+  .p,ul {text-align:left}
+
+  @include query(bravo){
+
+    text-align:left;
+  }
+}
+
+.slick-dots {
+  text-align:center;
+
+  @include query (bravo) {
+    text-align:right;
+  }
+
+}

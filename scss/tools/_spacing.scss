@@ -1,0 +1,38 @@
+// Spacing
+// =======
+
+// Specify the space before an element
+@mixin leading($space: size(spacing), $horizontal: false) {
+  * + & {
+    @if $horizontal { margin-left: $space; margin-top: 0; } @else { margin-top: $space; }
+  }
+}
+
+// Specify the space after an element
+@mixin trailing($space: size(spacing), $horizontal: false) {
+  & + * {
+    @if $horizontal { margin-left: $space; margin-top: 0; } @else { margin-top: $space; }
+  }
+}
+
+// Specify the space between all children in an element
+
+@mixin vertical($space: size(spacing)) {
+  > * {
+    @include trailing($space);
+  }
+}
+
+@mixin horizontal($space: size(spacing)) {
+  > * {
+    @include trailing($space, true);
+  }
+}
+
+@mixin flush {
+  @include vertical(0);
+}
+
+@mixin horizontal-flush {
+  @include horizontal(0);
+}

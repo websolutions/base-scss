@@ -1,0 +1,16 @@
+// Accordions
+
+.accordion {
+  .header {
+    display:block;
+    background: $colorPrimary;
+    color:#FFFFFF;
+    font-weight:normal;
+    padding:5px 0  5px 10px;
+    text-transform: uppercase;
+  }
+
+  .sprite {
+    float: right;
+  }
+}
